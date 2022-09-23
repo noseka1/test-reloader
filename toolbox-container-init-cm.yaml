@@ -12,3 +12,4 @@ data:
     echo CHECKPOINT1
     echo CHECKPOINT2
     echo CHECKPOINT3
+    echo CHECKPOINT4
