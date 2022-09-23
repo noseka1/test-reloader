@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: toolbox-container
+  annotations:
+    reloader.stakater.com/search: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: toolbox-container
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: toolbox-container
+    spec:
+      containers:
+      - image: toolbox-container
+        imagePullPolicy: Always
+        name: toolbox-container
+        volumeMounts:
+        - name: init
+          mountPath: /toolbox
+      serviceAccountName: toolbox-container
+      volumes:
+      - name: init
+        configMap:
+          name: toolbox-container-init
+      tolerations:
+      - operator: Exists
