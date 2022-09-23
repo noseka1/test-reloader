@@ -11,3 +11,4 @@ data:
     echo Hello from the custom init script!
     echo CHECKPOINT1
     echo CHECKPOINT2
+    echo CHECKPOINT3
